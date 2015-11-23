@@ -1,0 +1,2892 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2015 6:02:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LENOVO-PC"
+  DTS:CreatorName="LENOVO-PC\Nandakumar"
+  DTS:DTSID="{283C17C5-7FBF-4350-9BC5-8DFB47ADD7F3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="parking-package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{65C79190-1836-46C3-9651-762C7DE32427}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{E63D3E92-EA26-48E6-98AF-59362454E397}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nandakumar\Desktop\ist 722\project\parking_tickets_excel.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{217C5C90-216A-461E-BC39-65A5CEC0690F}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nandakumar\Desktop\ist 722\project\parking_tickets_excel.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{3F9FB763-2F48-4C43-A0DF-DD984A53B6F8}"
+      DTS:ObjectName="Excel Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nandakumar\Desktop\ist 722\project\parking_tickets_excel.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 3]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{DEA27997-C271-4D5F-B248-62BEAB97ED91}"
+      DTS:ObjectName="Excel Connection Manager 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nandakumar\Desktop\ist 722\project\parking_tikcets_final.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{13A87721-C982-4DA4-A213-5F2860E5F343}"
+      DTS:ObjectName="LENOVO-PC\SQLSTANDARD.master">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LENOVO-PC\SQLSTANDARD;Initial Catalog=master;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\fact"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1767616B-2BF7-49C1-931F-85E7AE84A186}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="fact"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\fact\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\fact\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\fact\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      name="P_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      name="stateDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      name="Vehicle_State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      name="Last_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      name="Original_Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      name="Penalties"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      name="Balance_Due"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      name="car_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      name="driver_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      name="ticket_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      dataType="r8"
+                      name="P_ID" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      name="stateDesc" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_License_Plate" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_State" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      name="Citation_Ticket_Number" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      dataType="cy"
+                      name="Original_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      dataType="cy"
+                      name="Penalties" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      dataType="cy"
+                      name="Balance_Due" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="car_Type" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="driver_ID" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_Region" />
+                    <externalMetadataColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      dataType="date"
+                      name="ticket_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\fact\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      dataType="r8"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      name="P_ID" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      name="stateDesc" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      name="Vehicle_State" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      name="Last_Name" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      name="Original_Amount" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      dataType="cy"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      name="Penalties" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      name="Balance_Due" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      name="car_Type" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      name="driver_ID" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      dataType="date"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      name="ticket_date" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\fact\stg_fact"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stg_fact"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Destination]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\fact\stg_fact.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  connectionManagerRefId="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[Vehicle_License_Plate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vehicle_License_Plate"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_License_Plate]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]" />
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[Vehicle_State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vehicle_State"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_State]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]" />
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[Citation_Ticket_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Citation_Ticket_Number"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Citation_Ticket_Number]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]" />
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[Original_Amount]"
+                      cachedDataType="cy"
+                      cachedName="Original_Amount"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Original_Amount]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]" />
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[Penalties]"
+                      cachedDataType="cy"
+                      cachedName="Penalties"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Penalties]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Penalties]" />
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[Balance_Due]"
+                      cachedDataType="cy"
+                      cachedName="Balance_Due"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Balance_Due]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]" />
+                    <inputColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].Columns[driver_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="driver_ID"
+                      externalMetadataColumnId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[driver_ID]"
+                      lineageId="Package\fact\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_License_Plate" />
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_State" />
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Citation_Ticket_Number]"
+                      dataType="wstr"
+                      length="255"
+                      name="Citation_Ticket_Number" />
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Original_Amount]"
+                      dataType="cy"
+                      name="Original_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Penalties]"
+                      dataType="cy"
+                      name="Penalties" />
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[Balance_Due]"
+                      dataType="cy"
+                      name="Balance_Due" />
+                    <externalMetadataColumn
+                      refId="Package\fact\stg_fact.Inputs[OLE DB Destination Input].ExternalColumns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="driver_ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\fact\stg_fact.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\fact\stg_fact.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fact\stg_fact.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\fact\stg_fact.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\fact\stg_fact.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\fact\stg_fact.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\fact.Paths[Excel Source Output]"
+              endId="Package\fact\stg_fact.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\fact\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\license"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CE6B8F43-3FA8-4FA4-B55C-DDB2600D06CE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="license"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\license\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\license\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\license\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      name="P_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      name="stateDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      name="Vehicle_State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      name="Last_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      name="Original_Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      name="Penalties"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      name="Balance_Due"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      name="car_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      name="driver_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      name="ticket_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      dataType="r8"
+                      name="P_ID" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      name="stateDesc" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_License_Plate" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_State" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      name="Citation_Ticket_Number" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      dataType="cy"
+                      name="Original_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      dataType="cy"
+                      name="Penalties" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      dataType="cy"
+                      name="Balance_Due" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="car_Type" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="driver_ID" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_Region" />
+                    <externalMetadataColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      dataType="date"
+                      name="ticket_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\license\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      dataType="r8"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      name="P_ID" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      name="stateDesc" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      name="Vehicle_State" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      name="Last_Name" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      name="Original_Amount" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      dataType="cy"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      name="Penalties" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      name="Balance_Due" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      name="car_Type" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      name="driver_ID" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      dataType="date"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      name="ticket_date" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\license\stg_license"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stg_license"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg_license]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\license\stg_license.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  connectionManagerRefId="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\license\stg_license.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\license\stg_license.Inputs[OLE DB Destination Input].Columns[Vehicle_License_Plate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vehicle_License_Plate"
+                      externalMetadataColumnId="Package\license\stg_license.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_License_Plate]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]" />
+                    <inputColumn
+                      refId="Package\license\stg_license.Inputs[OLE DB Destination Input].Columns[car_Type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="car_Type"
+                      externalMetadataColumnId="Package\license\stg_license.Inputs[OLE DB Destination Input].ExternalColumns[car_Type]"
+                      lineageId="Package\license\Excel Source.Outputs[Excel Source Output].Columns[car_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\license\stg_license.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_License_Plate" />
+                    <externalMetadataColumn
+                      refId="Package\license\stg_license.Inputs[OLE DB Destination Input].ExternalColumns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="car_Type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\license\stg_license.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\license\stg_license.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\license\stg_license.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\license\stg_license.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\license\stg_license.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\license\stg_license.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\license.Paths[Excel Source Output]"
+              endId="Package\license\stg_license.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\license\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\owner"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{77991260-A8AD-489D-B540-C050D9964A06}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="owner"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\owner\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\owner\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\owner\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      name="P_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      name="stateDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      name="Vehicle_State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      name="Last_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      name="Original_Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      name="Penalties"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      name="Balance_Due"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      name="car_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      name="driver_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      name="ticket_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      dataType="r8"
+                      name="P_ID" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      name="stateDesc" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_License_Plate" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_State" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      name="Citation_Ticket_Number" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      dataType="cy"
+                      name="Original_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      dataType="cy"
+                      name="Penalties" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      dataType="cy"
+                      name="Balance_Due" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="car_Type" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="driver_ID" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_Region" />
+                    <externalMetadataColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      dataType="date"
+                      name="ticket_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\owner\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      dataType="r8"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      name="P_ID" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      name="stateDesc" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      name="Vehicle_State" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      name="Last_Name" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      name="Original_Amount" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      dataType="cy"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      name="Penalties" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      name="Balance_Due" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      name="car_Type" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      name="driver_ID" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      dataType="date"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      name="ticket_date" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\owner\stg_Owner"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stg_Owner"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg_Owner]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\owner\stg_Owner.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  connectionManagerRefId="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].Columns[First_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="First_Name"
+                      externalMetadataColumnId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[First_Name]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[First_Name]" />
+                    <inputColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].Columns[Last_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Last_Name"
+                      externalMetadataColumnId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[Last_Name]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]" />
+                    <inputColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].Columns[driver_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="driver_ID"
+                      externalMetadataColumnId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[driver_ID]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]" />
+                    <inputColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].Columns[age]"
+                      cachedDataType="r8"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[age]" />
+                    <inputColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\owner\Excel Source.Outputs[Excel Source Output].Columns[gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="driver_ID" />
+                    <externalMetadataColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\owner\stg_Owner.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\owner\stg_Owner.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\owner\stg_Owner.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\owner\stg_Owner.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\owner\stg_Owner.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\owner.Paths[Excel Source Output]"
+              endId="Package\owner\stg_Owner.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\owner\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\state"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{26F13E73-887D-48F3-8306-66FE313EA4A7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="state"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\state\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Sheet1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\state\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\state\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[P_ID]"
+                      name="P_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]"
+                      name="stateDesc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]"
+                      name="Vehicle_State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Last_Name]"
+                      name="Last_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Original_Amount]"
+                      name="Original_Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Penalties]"
+                      name="Penalties"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Balance_Due]"
+                      name="Balance_Due"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[car_Type]"
+                      name="car_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[driver_ID]"
+                      name="driver_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[ticket_date]"
+                      name="ticket_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[P_ID]"
+                      dataType="r8"
+                      name="P_ID" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      name="stateDesc" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_License_Plate" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_State" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      name="Citation_Ticket_Number" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Last_Name" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Original_Amount]"
+                      dataType="cy"
+                      name="Original_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Penalties]"
+                      dataType="cy"
+                      name="Penalties" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Balance_Due]"
+                      dataType="cy"
+                      name="Balance_Due" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="car_Type" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="driver_ID" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[age]"
+                      dataType="r8"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_Region" />
+                    <externalMetadataColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Output].ExternalColumns[ticket_date]"
+                      dataType="date"
+                      name="ticket_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\state\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      dataType="r8"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[P_ID]"
+                      name="P_ID" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[stateDesc]"
+                      name="stateDesc" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_License_Plate]"
+                      name="Vehicle_License_Plate" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_State]"
+                      name="Vehicle_State" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      dataType="r8"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Citation_Ticket_Number]"
+                      name="Citation_Ticket_Number" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Last_Name]"
+                      name="Last_Name" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      dataType="cy"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Original_Amount]"
+                      name="Original_Amount" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      dataType="cy"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Penalties]"
+                      name="Penalties" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      dataType="cy"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Balance_Due]"
+                      name="Balance_Due" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[car_Type]"
+                      name="car_Type" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[driver_ID]"
+                      name="driver_ID" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      dataType="r8"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[Vehicle_Region]"
+                      name="Vehicle_Region" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      dataType="date"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[ticket_date]"
+                      name="ticket_date" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\state\stg_state"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stg_state"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg_state]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\state\stg_state.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  connectionManagerRefId="Package.ConnectionManagers[LENOVO-PC\SQLSTANDARD.master]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\state\stg_state.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\state\stg_state.Inputs[OLE DB Destination Input].Columns[stateDesc]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="stateDesc"
+                      externalMetadataColumnId="Package\state\stg_state.Inputs[OLE DB Destination Input].ExternalColumns[stateDesc]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[stateDesc]" />
+                    <inputColumn
+                      refId="Package\state\stg_state.Inputs[OLE DB Destination Input].Columns[Vehicle_State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vehicle_State"
+                      externalMetadataColumnId="Package\state\stg_state.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_State]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_State]" />
+                    <inputColumn
+                      refId="Package\state\stg_state.Inputs[OLE DB Destination Input].Columns[Vehicle_Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vehicle_Region"
+                      externalMetadataColumnId="Package\state\stg_state.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Region]"
+                      lineageId="Package\state\Excel Source.Outputs[Excel Source Output].Columns[Vehicle_Region]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\state\stg_state.Inputs[OLE DB Destination Input].ExternalColumns[stateDesc]"
+                      dataType="wstr"
+                      length="255"
+                      name="stateDesc" />
+                    <externalMetadataColumn
+                      refId="Package\state\stg_state.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_State]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_State" />
+                    <externalMetadataColumn
+                      refId="Package\state\stg_state.Inputs[OLE DB Destination Input].ExternalColumns[Vehicle_Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vehicle_Region" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\state\stg_state.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\state\stg_state.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\state\stg_state.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\state\stg_state.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\state\stg_state.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\state\stg_state.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\state.Paths[Excel Source Output]"
+              endId="Package\state\stg_state.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\state\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9239D42B-480F-455F-B7B4-F4DB2EECD5A6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{13A87721-C982-4DA4-A213-5F2860E5F343}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  stg_state&#xA;TRUNCATE TABLE stg_Owner&#xA;TRUNCATE TABLE stg_license&#xA;TRUNCATE TABLE Destination" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D015CCEB-0AF0-4B83-AC53-A26CF608E0EC}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\state" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C142BDA-EFA6-462D-BFFA-279BD0CA9A51}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\owner" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5AB94564-5FD0-4BEE-A31E-3977632A6F70}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F0DEE48-12D5-43D8-8888-4CADF57098C7}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\license" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="96,42"
+          Id="Package\fact"
+          TopLeft="815,133" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\license"
+          TopLeft="552,133" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\owner"
+          TopLeft="398.5,124.5" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\state"
+          TopLeft="192,119" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Truncate tables"
+          TopLeft="378,34" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="410.8,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-167.8,43"
+              Start="0,0"
+              End="-167.8,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.96323529411765" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.96323529411765"
+                    Point2="0,12.9632352941177"
+                    Point3="-4,12.9632352941177" />
+                  <mssgle:LineSegment
+                    End="-163.8,12.9632352941177" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-163.8,12.9632352941177"
+                    Point2="-167.8,12.9632352941177"
+                    Point3="-167.8,16.9632352941177" />
+                  <mssgle:LineSegment
+                    End="-167.8,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="439.6,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.9,48.5"
+              Start="0,0"
+              End="12.9,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7122093023256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.7122093023256"
+                    Point2="0,21.7122093023256"
+                    Point3="4,21.7122093023256" />
+                  <mssgle:LineSegment
+                    End="8.89999999999998,21.7122093023256" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.89999999999998,21.7122093023256"
+                    Point2="12.9,21.7122093023256"
+                    Point3="12.9,25.7122093023256" />
+                  <mssgle:LineSegment
+                    End="12.9,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="497.2,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="365.8,57"
+              Start="0,0"
+              End="365.8,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.1838235294118" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.1838235294118"
+                    Point2="0,17.1838235294118"
+                    Point3="4,17.1838235294118" />
+                  <mssgle:LineSegment
+                    End="361.8,17.1838235294118" />
+                  <mssgle:CubicBezierSegment
+                    Point1="361.8,17.1838235294118"
+                    Point2="365.8,17.1838235294118"
+                    Point3="365.8,21.1838235294118" />
+                  <mssgle:LineSegment
+                    End="365.8,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="468.4,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.1,57"
+              Start="0,0"
+              End="139.1,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5174418604651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5174418604651"
+                    Point2="0,25.5174418604651"
+                    Point3="4,25.5174418604651" />
+                  <mssgle:LineSegment
+                    End="135.1,25.5174418604651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.1,25.5174418604651"
+                    Point2="139.1,25.5174418604651"
+                    Point3="139.1,29.5174418604651" />
+                  <mssgle:LineSegment
+                    End="139.1,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\fact">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\fact\Excel Source"
+          TopLeft="338,49" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\fact\stg_fact"
+          TopLeft="421,174" />
+        <EdgeLayout
+          Id="Package\fact.Paths[Excel Source Output]"
+          TopLeft="407.5,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72,83"
+              Start="0,0"
+              End="72,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="68,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68,41.5"
+                    Point2="72,41.5"
+                    Point3="72,45.5" />
+                  <mssgle:LineSegment
+                    End="72,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact\stg_fact">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\license">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\license\Excel Source"
+          TopLeft="336,56" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\license\stg_license"
+          TopLeft="410,181" />
+        <EdgeLayout
+          Id="Package\license.Paths[Excel Source Output]"
+          TopLeft="405.5,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70,83"
+              Start="0,0"
+              End="70,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="66,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66,41.5"
+                    Point2="70,41.5"
+                    Point3="70,45.5" />
+                  <mssgle:LineSegment
+                    End="70,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\license\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\license\stg_license">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\owner">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\owner\Excel Source"
+          TopLeft="182,39" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\owner\stg_Owner"
+          TopLeft="220,148" />
+        <EdgeLayout
+          Id="Package\owner.Paths[Excel Source Output]"
+          TopLeft="251.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.5,67"
+              Start="0,0"
+              End="33.5,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="4,33.5" />
+                  <mssgle:LineSegment
+                    End="29.5,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5,33.5"
+                    Point2="33.5,33.5"
+                    Point3="33.5,37.5" />
+                  <mssgle:LineSegment
+                    End="33.5,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\owner\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\owner\stg_Owner">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\state">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\state\Excel Source"
+          TopLeft="303,50" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\state\stg_state"
+          TopLeft="343,157" />
+        <EdgeLayout
+          Id="Package\state.Paths[Excel Source Output]"
+          TopLeft="372.5,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.5,65"
+              Start="0,0"
+              End="31.5,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="27.5,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,32.5"
+                    Point2="31.5,32.5"
+                    Point3="31.5,36.5" />
+                  <mssgle:LineSegment
+                    End="31.5,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\state\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\state\stg_state">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
